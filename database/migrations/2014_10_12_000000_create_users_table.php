@@ -24,9 +24,9 @@ return new class extends Migration
             $table->boolean('gender')->nullable();
             $table->string('phone')->nullable();
             $table->text('verification_link')->nullable();
-            $table->tinyInteger('email_verified')->nullable();
+            $table->tinyInteger('email_verified')->default(0);
             $table->timestamp('email_verified_at')->nullable();
-            $table->tinyInteger('received_status')->nullable();
+            $table->tinyInteger('received_status')->default(0);
             $table->text('hobby')->nullable();
             $table->string('address')->nullable();
             $table->timestamps();

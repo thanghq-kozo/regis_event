@@ -40,6 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+//        'user' => [
+//            'driver' => 'jwt',
+//            'provider' => 'users',
+//            'hash' => false,
+//        ],
+//        'admin' => [
+//            'driver' => 'jwt',
+//            'provider' => 'admins',
+//            'hash' => false,
+//        ],
     ],
 
     /*
@@ -62,13 +72,13 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Entities\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Entities\Admin::class,
+        ],
     ],
 
     /*

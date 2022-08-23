@@ -2,19 +2,16 @@
 
 namespace App\Entities;
 
-use Illuminate\Database\Eloquent\Model;
-use Prettus\Repository\Contracts\Transformable;
-use Prettus\Repository\Traits\TransformableTrait;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * Class User.
  *
  * @package namespace App\Entities;
  */
-class User extends Model implements Transformable
+class User extends Authenticatable implements JWTSubject
 {
-    use TransformableTrait;
-
     /**
      * The attributes that are mass assignable.
      *
@@ -45,4 +42,14 @@ class User extends Model implements Transformable
     protected $hidden = [
         'password',
     ];
+
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    public function getJWTCustomClaims(): array
+    {
+        return [];
+    }
 }
